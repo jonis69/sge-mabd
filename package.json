@@ -1,0 +1,29 @@
+{
+  "name": "sge-mabd",
+  "version": "1.0.0",
+  "description": "Trabalho da 3a unidade da disciplina de Modelos Avançados de Bancos de Dados",
+  "main": "server.js",
+  "scripts": {
+    "dev-run": "nodemon run server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonis69/sge-mabd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonis69/sge-mabd/issues"
+  },
+  "homepage": "https://github.com/jonis69/sge-mabd#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^6.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
