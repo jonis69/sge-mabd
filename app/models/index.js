@@ -1,0 +1,11 @@
+const dbConfig = require("../config/db.config.js");
+const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+const db = {};
+db.mongoose = mongoose;
+db.url = dbConfig.url;
+db.interns = require("./Intern.js")(mongoose);
+db.internships = require("./Internship.js")(mongoose);
+db.agreements = require("./Agreement")(mongoose);
+// db.addresses = require("./Address")(mongoose);
+module.exports = db;
