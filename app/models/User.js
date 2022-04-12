@@ -1,10 +1,12 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
-            // define logged user
-
+            name: String,
+            surname: String,
+            email: String,
+            password: String
         },
-        { timestamps: true }
+        { timestamps: true } 
     );
     schema.method("toJSON", function() {
         const { __v, _id, ...object } = this.toObject();
