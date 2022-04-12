@@ -11,7 +11,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
-    res.json({ message: "seja wellcomido" });
+    res.json({ message: "seja bem vindo (y)" });
 });
 
 const allRoutes = require('./app/routes/routes');
