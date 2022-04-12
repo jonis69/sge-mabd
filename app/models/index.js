@@ -7,5 +7,6 @@ db.url = dbConfig.url;
 db.interns = require("./Intern.js")(mongoose);
 db.internships = require("./Internship.js")(mongoose);
 db.agreements = require("./Agreement")(mongoose);
+db.users = require("./User")(mongoose);
 // db.addresses = require("./Address")(mongoose);
 module.exports = db;
