@@ -23,26 +23,3 @@ module.exports = mongoose => {
     const Internship = mongoose.model("internships", schema);
     return Internship;
 };
-
-// module.exports = mongoose => {
-//     const Internship = mongoose.model(
-//         "internships",
-//         mongoose.Schema(
-//             {
-//                 // fazer foreign key dps
-//                 name: String,
-//                 advisor: String,
-//                 supervisor: String,
-//                 salary_amount: Number,
-//                 start_date: Date,
-//                 end_date: Date,
-//                 report_date: Date,
-//                 // fazer foreign key dps
-//                 agreement: String
-
-//             },
-//             { timestamps: true }
-//         )
-//     );
-//     return Internship;
-// };
