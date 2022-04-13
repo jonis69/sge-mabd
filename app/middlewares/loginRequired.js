@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const db = require('../models');
+const User = db.users;
 const { Unauthorized } = require('../config/errors');
 
 module.exports = async (req, res, next) => {
@@ -15,12 +16,7 @@ module.exports = async (req, res, next) => {
     const { id, email } = data; // Extraindo id e email que vieram no payload
 
     // Verificando se é o mesmo usuário (caso tenha atualizado o email, o token não será mais válido)
-    const user = await User.findOne({
-      where: {
-        id,
-        email,
-      },
-    });
+    const user = await User.findOne({ where: { id, email, },});
 
     if (!user) { // Se o usuário atualizou seu EMAIL, ele terá que realizar login novamente
       throw new Unauthorized('Invalid user, login again');
