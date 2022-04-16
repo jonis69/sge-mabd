@@ -1,25 +1,22 @@
 const db = require("../models");
 const Internship = db.internships;
-//const Adress = db.addresses;
-
 
 // Criar um estágio
 exports.create = async (req, res, next) => { 
     try {
         await Internship.create({
-             // fazer foreign key dps
-             name: req.body.name,
-             advisor: req.body.advisor,
-             supervisor: req.body.supervisor,
-             salary_amount: req.body.salary_amount,
-             start_date: req.body.start_date,
-             end_date: req.body.end_date,
-             report_date: req.body.report_date,
-             // fazer foreign key dps
-             agreement: req.body.agreement
+            intern_name: req.body.intern_name,
+            advisor: req.body.advisor,
+            supervisor: req.body.supervisor,
+            salary_amount: req.body.salary_amount,
+            start_date: req.body.start_date,
+            end_date: req.body.end_date,
+            report_date: req.body.report_date,
+            agreement: req.body.agreement
 
-        });
+             
 
+        })
         return res.status(201).json({ status: 'ok' });
 
     } catch(err) {
@@ -32,8 +29,8 @@ exports.create = async (req, res, next) => {
 // Encontrar todos os estágios da base de dados.
 exports.findAll = async (req, res, next) => {
     try{ 
-        const internships = await Internship.find();
-        res.json(internships)
+        const internships = await Internship.find({})
+        res.json(internships);
 
     }catch (err) {
         res.status(500).send({ message: "Algum erro ocorreu ao tentar encontrar os estágios" })
@@ -49,7 +46,7 @@ exports.findOne = async (req, res, next) => {
             return res.status(400).send({ message: 'Faltando campo necessário: internship ID' });
         }
 
-        const internship = await Internship.findById(id);
+        const internship =  await Internship.findById(id)//.populate({path: 'name', model: 'Intern'}).exec();
 
         if (!internship) {
             return res.status(404).send({ message: 'Recurso não encontrado: Estágio não existe' });
