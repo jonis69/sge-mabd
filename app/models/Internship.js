@@ -1,17 +1,14 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
-            // fazer foreign key dps
-            name: String,
+            intern_name: String,
             advisor: String,
             supervisor: String,
             salary_amount: Number,
             start_date: Date,
             end_date: Date,
             report_date: Date,
-            // fazer foreign key dps
-            agreement: String
-
+            agreement: String,
         },
         { timestamps: true }
     );
