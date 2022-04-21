@@ -9,16 +9,16 @@ module.exports = async (req, res, next) => {
     throw new Unauthorized();
   }
 
-  const [, token] = authorization.split(' '); // Vai vir: "Bearer(espaço)Token".  por isso o split no token
+  const [, token] = authorization.split(' '); // Vai vir: "Bearer(espaço)Token".  por isso o split no tokenS
 
   try {
     const data = jwt.verify(token, process.env.SECRET_TOKEN); // Dados que estão no payload do token
     const { id, email } = data; // Extraindo id e email que vieram no payload
 
-    // Verificando se é o mesmo usuário (caso tenha atualizado o email, o token não será mais válido)
+    // Verificando se é o mesmo usuário
     const user = await User.findOne({ where: { id, email, },});
 
-    if (!user) { // Se o usuário atualizou seu EMAIL, ele terá que realizar login novamente
+    if (!user) { 
       throw new Unauthorized('Invalid user, login again');
     }
 
